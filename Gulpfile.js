@@ -48,7 +48,7 @@ const rollupJS = (inputFile, options) => {
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest(options.distPath));
     };
-}
+};
 
 /**
  * Bundle JS files starting from main.js
@@ -60,9 +60,3 @@ gulp.task('rollup', rollupJS('main.js', {
     sourcemap: true
 }));
 
-/**
- * Watch all JS files and rebuild on change
- */
-gulp.task('watchBuildJS', ['rollup'], () => {
-    gulp.watch('src/**/*.js', [/* do some linting etc., */ 'rollup']);
-});
